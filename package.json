@@ -13,7 +13,9 @@
   "scripts": {
     "cms:start": "yarn workspace @sport-stream/cms run dev",
     "cms:build": "yarn workspace @sport-stream/cms run build",
+    "cms:preview": "yarn workspace @sport-stream/cms run preview",
     "tv:start": "yarn workspace @sport-stream/tv-app run dev",
-    "tv:build": "yarn workspace @sport-stream/tv-app run build"
+    "tv:build": "yarn workspace @sport-stream/tv-app run build",
+    "tv:preview": "yarn workspace @sport-stream/tv-app run preview"
   }
 }
