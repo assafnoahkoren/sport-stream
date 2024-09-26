@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+          "@sport-stream/common/*": ["../common/*"]
+        },
+      },
+      "include": ["src"]
+}
