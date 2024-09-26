@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+**/build
+**/coverage
+**/public
+**/vite
+**/vite-env.d.ts
+**/tsconfig.json
+**/tsconfig.tsbuildinfo

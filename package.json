@@ -1,0 +1,19 @@
+{
+  "name": "sport-stream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/assafnoahkoren/sport-stream",
+  "author": "Assaf Koren <assafnoahkoren@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "cms:start": "yarn workspace @sport-stream/cms run dev",
+    "cms:build": "yarn workspace @sport-stream/cms run build",
+    "tv:start": "yarn workspace @sport-stream/tv-app run dev",
+    "tv:build": "yarn workspace @sport-stream/tv-app run build"
+  }
+}
