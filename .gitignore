@@ -4,6 +4,4 @@
 **/coverage
 **/public
 **/vite
-**/vite-env.d.ts
-**/tsconfig.json
 **/tsconfig.tsbuildinfo
