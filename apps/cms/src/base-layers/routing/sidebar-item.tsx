@@ -11,9 +11,9 @@ export interface SidebarItemProps {
 const SidebarItem: React.FC<SidebarItemProps> = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
-
+  const isActive = location.pathname === props.path;
   const handleClick = () => {
-    if (location.pathname === props.path) { return; }
+    if (isActive) { return; }
     navigate(props.path);
   };
 
@@ -21,7 +21,11 @@ const SidebarItem: React.FC<SidebarItemProps> = (props) => {
     <Button 
       onClick={handleClick}
       disabled={props.disabled}
-      className={`flex items-center gap-2 p-2 rounded-md ${props.disabled ? '' : 'hover:bg-primary'}`}
+      className={`
+        flex items-center gap-2 p-2 rounded-md
+        ${props.disabled ? '' : 'hover:bg-primary'}
+        ${isActive ? 'border-primary-1' : ''}
+      `}
     >
       {props.icon}
       &nbsp;&nbsp;

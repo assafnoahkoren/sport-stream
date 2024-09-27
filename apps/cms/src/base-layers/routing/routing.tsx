@@ -4,6 +4,9 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import AppShellComponent from '../app-shell';
+import BrowsePage from '../../pages/browse/browse-page';
+import ContentPage from '../../pages/content/content-page';
+import TagsPage from '../../pages/tags/tags-page';
 
 const router = createBrowserRouter([
   {
@@ -11,12 +14,16 @@ const router = createBrowserRouter([
     element: <AppShellComponent />,
     children: [
       {
+        path: "/",
+        element: <BrowsePage />,
+      },
+      {
         path: "/content",
-        element: <div>Home</div>,
+        element: <ContentPage />,
       },
       {
         path: "/tags",
-        element: <div>Create</div>,
+        element: <TagsPage />,
       },
       {
         path: "/home-layout",

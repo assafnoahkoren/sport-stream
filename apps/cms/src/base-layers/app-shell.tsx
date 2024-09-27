@@ -2,10 +2,15 @@ import React from 'react';
 import { AppShell } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import SidebarItem, { SidebarItemProps } from './routing/sidebar-item';
-import { IconHash, IconLayout, IconVideo } from '@tabler/icons-react';
+import { IconHash, IconLayout, IconLayoutGrid, IconLayoutGridFilled, IconVideo } from '@tabler/icons-react';
 import { Outlet } from 'react-router-dom';
 
 const sidebarItems: SidebarItemProps[] = [
+  {
+    path: '/',
+    label: 'Browse',
+    icon: <IconLayoutGrid />
+  },
   {
     path: '/content',
     label: 'Content',
