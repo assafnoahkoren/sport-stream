@@ -18,11 +18,11 @@ const router = createBrowserRouter([
         element: <BrowsePage />,
       },
       {
-        path: "/content",
+        path: "/content/:id?",
         element: <ContentPage />,
       },
       {
-        path: "/tags",
+        path: "/tags/:id",
         element: <TagsPage />,
       },
       {

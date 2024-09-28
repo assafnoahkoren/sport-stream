@@ -22,9 +22,9 @@ const SidebarItem: React.FC<SidebarItemProps> = (props) => {
       onClick={handleClick}
       disabled={props.disabled}
       className={`
-        flex items-center gap-2 p-2 rounded-md
-        ${props.disabled ? '' : 'hover:bg-primary'}
-        ${isActive ? 'border-primary-1' : ''}
+        flex items-center gap-2 p-2 rounded-md bg-transparent
+        ${props.disabled ? '' : 'hover:bg-primary-6'}
+        ${isActive ? 'border-primary' : ''}
       `}
     >
       {props.icon}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { AppShell } from '@mantine/core';
+import { AppShell, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import SidebarItem, { SidebarItemProps } from './routing/sidebar-item';
-import { IconHash, IconLayout, IconLayoutGrid, IconLayoutGridFilled, IconVideo } from '@tabler/icons-react';
+import { IconHash, IconLayout, IconLayoutGrid, IconLayoutGridFilled, IconMenu2, IconVideo, IconX } from '@tabler/icons-react';
 import { Outlet } from 'react-router-dom';
 
 const sidebarItems: SidebarItemProps[] = [
@@ -38,7 +38,10 @@ const AppShellComponent: React.FC = () => {
       navbar={{ width: 240, breakpoint: 'sm', collapsed: { mobile: !opened } }}
       padding="md"
     >
-
+      <Flex hiddenFrom='sm' className='fixed bottom-2 left-2 bg-primary-6 flex items-center justify-center p-2 rounded z-[9999]'
+        onClick={toggle}>
+        {opened ? <IconX /> : <IconMenu2 />}
+      </Flex>
       <AppShell.Navbar p="md">
         <span className="text-xl font-700 text-primary rounded-md mb-4 flex items-center justify-center ">
           Sport Stream
