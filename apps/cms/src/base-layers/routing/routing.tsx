@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <ContentPage />,
       },
       {
-        path: "/tags/:id",
+        path: "/tags/:id?",
         element: <TagsPage />,
       },
       {

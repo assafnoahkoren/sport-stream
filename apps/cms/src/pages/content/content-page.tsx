@@ -10,8 +10,6 @@ const ContentPage: React.FC<ContentPageProps> = (props) => {
   const id = idStr ? parseInt(idStr, 10) : null;
   const isEditMode = !!id;
 
-  const { data } = useQuery_getContentById(id);
-
   return (
     <div className='flex flex-col gap-4'>
       <div>
@@ -21,7 +19,7 @@ const ContentPage: React.FC<ContentPageProps> = (props) => {
           <div>Create Mode</div>
         )}
       </div>
-      <ContentForm content={data} contentId={id} />
+      <ContentForm contentId={id} />
 
     </div>
   );

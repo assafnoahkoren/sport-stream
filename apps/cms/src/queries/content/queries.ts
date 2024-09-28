@@ -13,3 +13,13 @@ export const useQuery_getContentById = (id?: number | null) => {
     enabled: !!id,
   });
 };
+
+export const useQuery_allContent = () => {
+  return useAppQuery({
+    queryKey: ['contents'],
+    queryFn: async () => {
+      const { data } = await supabase.from('content').select('*');
+      return data;
+    },
+  });
+};
