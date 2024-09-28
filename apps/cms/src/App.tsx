@@ -1,14 +1,17 @@
-import { greet } from "@sport-stream/common"
-import { useEffect } from "react"
-
 import '@mantine/core/styles.css';
 import MantineLayer from "./base-layers/mantine-layer";
 import Routing from "./base-layers/routing/routing";
+import { useEffect } from 'react';
+import supabase from './queries/supabase';
+import { Database } from '@sport-stream/common/src/database.types';
+const x: Database = {} as any;
+console.log(x);
 
 function App() {
   useEffect(() => {
-    console.log(greet('asd'));
-
+    supabase.from('tags').select('*').then(({ data, error }) => {
+      console.log(data);
+    })
   }, [])
   return (
     <MantineLayer >
