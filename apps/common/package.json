@@ -10,6 +10,10 @@
     "supabase": "^1.200.3"
   },
   "scripts": {
-    "supabase:types": "npx supabase gen types --lang=typescript --project-id rwhmppiedwslwbwmqien --schema public > src/database.types.ts"
+    "supabase:types": "npx supabase gen types --lang=typescript --project-id rwhmppiedwslwbwmqien --schema public > src/database.types.ts",
+    "supabase:login": "npx supabase login && npx supabase link --project-ref rwhmppiedwslwbwmqien",
+    "supabase:pull": "npx supabase db pull",
+    "supabase:migrate": "npx supabase migration new migration"
+
   }
 }

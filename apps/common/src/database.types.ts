@@ -78,6 +78,64 @@ export type Database = {
           },
         ]
       }
+      games: {
+        Row: {
+          created_at: string
+          game_date: string | null
+          id: number
+          league_tag_id: number | null
+          summary_video_url: string | null
+          team1_score: number | null
+          team1_tag_id: number | null
+          team2_score: number | null
+          team2_tag_id: number | null
+        }
+        Insert: {
+          created_at?: string
+          game_date?: string | null
+          id?: number
+          league_tag_id?: number | null
+          summary_video_url?: string | null
+          team1_score?: number | null
+          team1_tag_id?: number | null
+          team2_score?: number | null
+          team2_tag_id?: number | null
+        }
+        Update: {
+          created_at?: string
+          game_date?: string | null
+          id?: number
+          league_tag_id?: number | null
+          summary_video_url?: string | null
+          team1_score?: number | null
+          team1_tag_id?: number | null
+          team2_score?: number | null
+          team2_tag_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "games_league_tag_id_fkey"
+            columns: ["league_tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "games_team1_tag_id_fkey"
+            columns: ["team1_tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "games_team2_tag_id_fkey"
+            columns: ["team2_tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       tags: {
         Row: {
           color_1: string | null
