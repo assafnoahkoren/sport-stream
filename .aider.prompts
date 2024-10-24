@@ -12,6 +12,7 @@ Add it to the apps/cms/src/base-layers/app-shell.tsx file to the sidebar.
 
 Some guidelines for the new task:
 - For UI use the mantine components
+- For styling use the tailwindcss classes
 - For the database access:
 - - Create a useAppQuery or useAppMutation hook
 - - Use the database types for the query and mutation functions
@@ -25,3 +26,7 @@ Edit the .aider.task file in the folowing way:
 
 Before you start, think step by step and write down the plan.
 Before each subtask, ask if you should continue or if you need to change the plan.
+
+
+# Continue prompt
+Continue to the next subtask. At the end of your message print the status of the current subtasks.

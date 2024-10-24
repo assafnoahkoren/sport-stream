@@ -1,17 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { Database } from '../../../../common/src/database.types';
-import { useSupabaseClient } from '../../base-layers/supabase-layer';
+import supabase from "../supabase";
 
-type GameCategory = Database['public']['Tables']['game_categories']['Row'];
+type GameCategory = Database['public']['Tables']['games']['Row'];
 
 export const useQuery_getAllGameCategories = () => {
-  const supabase = useSupabaseClient();
 
   return useQuery<GameCategory[], Error>({
     queryKey: ['gameCategories'],
     queryFn: async () => {
       const { data, error } = await supabase
-        .from('game_categories')
+        .from('games')
         .select('*');
 
       if (error) throw error;
@@ -21,14 +20,12 @@ export const useQuery_getAllGameCategories = () => {
 };
 
 export const useQuery_getGameCategoryById = (id: number | null) => {
-  const supabase = useSupabaseClient();
-
   return useQuery<GameCategory | null, Error>({
     queryKey: ['gameCategory', id],
     queryFn: async () => {
       if (!id) return null;
       const { data, error } = await supabase
-        .from('game_categories')
+        .from('games')
         .select('*')
         .eq('id', id)
         .single();

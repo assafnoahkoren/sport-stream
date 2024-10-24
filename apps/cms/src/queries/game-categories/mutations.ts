@@ -1,18 +1,17 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Database } from '../../../../common/src/database.types';
-import { useSupabaseClient } from '../../base-layers/supabase-layer';
+import supabase from '../supabase';
 
-type GameCategoryInsert = Database['public']['Tables']['game_categories']['Insert'];
-type GameCategoryUpdate = Database['public']['Tables']['game_categories']['Update'];
+type GameCategoryInsert = Database['public']['Tables']['games']['Insert'];
+type GameCategoryUpdate = Database['public']['Tables']['games']['Update'];
 
 export const useMutation_insertGameCategory = () => {
-  const supabase = useSupabaseClient();
   const queryClient = useQueryClient();
 
   return useMutation<GameCategoryInsert, Error, GameCategoryInsert>({
     mutationFn: async (newGameCategory) => {
       const { data, error } = await supabase
-        .from('game_categories')
+        .from('games')
         .insert(newGameCategory)
         .single();
 
@@ -20,19 +19,18 @@ export const useMutation_insertGameCategory = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['gameCategories']);
+      queryClient.invalidateQueries({ queryKey: ['gameCategories'] });
     },
   });
 };
 
 export const useMutation_updateGameCategory = () => {
-  const supabase = useSupabaseClient();
   const queryClient = useQueryClient();
 
   return useMutation<GameCategoryUpdate, Error, { id: number; updates: GameCategoryUpdate }>({
     mutationFn: async ({ id, updates }) => {
       const { data, error } = await supabase
-        .from('game_categories')
+        .from('games')
         .update(updates)
         .eq('id', id)
         .single();
@@ -41,7 +39,7 @@ export const useMutation_updateGameCategory = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(['gameCategories']);
+      queryClient.invalidateQueries({ queryKey: ['gameCategories'] });
     },
   });
 };
