@@ -3,12 +3,12 @@ import { Database } from '@sport-stream/common/src/database.types';
 
 type Game = Database['public']['Tables']['games']['Row'];
 
-interface GameProps {
+interface GameCardProps {
   game: Game;
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
-const Game: React.FC<GameProps> = ({ game, containerProps }) => {
+const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
   return (
     <div {...containerProps}>
       asd
@@ -16,4 +16,4 @@ const Game: React.FC<GameProps> = ({ game, containerProps }) => {
   );
 };
 
-export default Game;
+export default GameCard;

@@ -1,11 +1,12 @@
 import React from 'react';
 import { useForm } from '@mantine/form';
-import { TextInput, NumberInput, Button, Select, Stack, Group, Autocomplete, Text } from '@mantine/core';
+import { TextInput, NumberInput, Button, Select, Stack, Group, Autocomplete, Text, Title } from '@mantine/core';
 import { useQuery_allTags, useQuery_getTagsByType } from '../../queries/tags/queries';
 import { useMutation_insertGame, useMutation_updateGame } from '../../queries/game/mutations';
 import { useQuery_getGameById } from '../../queries/game/queries';
 import { Database } from '@sport-stream/common/src/database.types';
 import { DateInput, DatePicker } from '@mantine/dates';
+import GameCard from './game';
 
 type Game = Database['public']['Tables']['games']['Row'];
 
@@ -56,72 +57,78 @@ const GamesForm: React.FC<GamesFormProps> = ({ gameId }) => {
   const sportTagOptions = sportTags?.map(tag => ({ value: tag.id.toString(), label: tag.label || '' })) || [];
 
   return (
-    <form onSubmit={form.onSubmit(handleSubmit)} className="space-y-4">
-      <Group>
-        <Stack className='flex-1'>
-          <Autocomplete
-            label="League"
-            placeholder="Select league"
-            data={leagueTagOptions}
-            {...form.getInputProps('league_tag_id')}
-            className="flex-1"
-          />
-          <Autocomplete
-            label="Sport"
-            placeholder="Select sport"
-            data={sportTagOptions}
-            {...form.getInputProps('sport_tag_id')}
-            className="flex-1"
-          />
-                <Group>
-        <Select
-          label="Team 1"
-          placeholder="Select team"
-          className="flex-1"
-          data={teamTagOptions}
-          {...form.getInputProps('team1_tag_id')}
-        />
-        <NumberInput
-          label="Team 1 Score"
-          placeholder="Enter score"
-          className="flex-1"
-          {...form.getInputProps('team1_score')}
-        />
-      </Group>
-      <Group>
-        <Select
-          label="Team 2"
-          placeholder="Select team"
-          className="flex-1"
-          data={teamTagOptions}
-          {...form.getInputProps('team2_tag_id')}
-        />
-        <NumberInput
-          label="Team 2 Score"
-          placeholder="Enter score"
-          className="flex-1"
-          {...form.getInputProps('team2_score')}
-        />
-      </Group>
-        </Stack>
-        <Stack>
-          <Text size='sm' className='text-align-center'>Game Date</Text>
-          <DatePicker h={300}
-            {...form.getInputProps('game_date')}
-          />
-        </Stack>
-      </Group>
+    <div className='flex flex-col gap-4'>
+      <form onSubmit={form.onSubmit(handleSubmit)} className="space-y-4">
+        <Group>
+          <Stack className='flex-1'>
+            <Autocomplete
+              label="League"
+              placeholder="Select league"
+              data={leagueTagOptions}
+              {...form.getInputProps('league_tag_id')}
+              className="flex-1"
+            />
+            <Autocomplete
+              label="Sport"
+              placeholder="Select sport"
+              data={sportTagOptions}
+              {...form.getInputProps('sport_tag_id')}
+              className="flex-1"
+            />
+            <Group>
+              <Select
+                label="Team 1"
+                placeholder="Select team"
+                className="flex-1"
+                data={teamTagOptions}
+                {...form.getInputProps('team1_tag_id')}
+              />
+              <NumberInput
+                label="Team 1 Score"
+                placeholder="Enter score"
+                className="flex-1"
+                {...form.getInputProps('team1_score')}
+              />
+            </Group>
+            <Group>
+              <Select
+                label="Team 2"
+                placeholder="Select team"
+                className="flex-1"
+                data={teamTagOptions}
+                {...form.getInputProps('team2_tag_id')}
+              />
+              <NumberInput
+                label="Team 2 Score"
+                placeholder="Enter score"
+                className="flex-1"
+                {...form.getInputProps('team2_score')}
+              />
+            </Group>
+          </Stack>
+          <Stack>
+            <Text size='sm' className='text-align-center'>Game Date</Text>
+            <DatePicker h={300}
+              {...form.getInputProps('game_date')}
+            />
+          </Stack>
+        </Group>
 
-      <TextInput
-        label="Summary Video URL"
-        placeholder="Enter video URL"
-        {...form.getInputProps('summary_video_url')}
-        className="w-full"
-      />
-      <Button type="submit" className="w-full">
-        {gameId ? 'Update Game' : 'Create Game'}
-      </Button>
-    </form>
+        <TextInput
+          label="Summary Video URL"
+          placeholder="Enter video URL"
+          {...form.getInputProps('summary_video_url')}
+          className="w-full"
+        />
+        <Button type="submit" className="w-full">
+          {gameId ? 'Update Game' : 'Create Game'}
+        </Button>
+      </form>
+      <Title order={2} className='mb-10'>
+        Preview
+      </Title>
+      <GameCard game={form.values} />
+    </div>
   );
 };
 
