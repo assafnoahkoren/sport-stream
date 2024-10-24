@@ -12,7 +12,7 @@ const GamesPage: React.FC<GamesPageProps> = () => {
 
   return (
     <div className='flex flex-col gap-4'>
-      <Text size="xl" weight={700} className="mb-4">
+      <Text size="xl" w={700} className="mb-4">
         {isEditMode ? 'Edit Game' : 'Create New Game'}
       </Text>
       <GamesForm gameId={id} />
