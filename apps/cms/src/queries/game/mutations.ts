@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { Database } from '../../../../common/src/database.types';
+import { Database } from '@sport-stream/common/src/database.types';
 import supabase from '../supabase';
 
 type GameCategoryInsert = Database['public']['Tables']['games']['Insert'];
 type GameCategoryUpdate = Database['public']['Tables']['games']['Update'];
 
-export const useMutation_insertGameCategory = () => {
+export const useMutation_insertGame = () => {
   const queryClient = useQueryClient();
 
   return useMutation<GameCategoryInsert, Error, GameCategoryInsert>({
@@ -19,12 +19,12 @@ export const useMutation_insertGameCategory = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['gameCategories'] });
+      queryClient.invalidateQueries({ queryKey: ['games'] });
     },
   });
 };
 
-export const useMutation_updateGameCategory = () => {
+export const useMutation_updateGame = () => {
   const queryClient = useQueryClient();
 
   return useMutation<GameCategoryUpdate, Error, { id: number; updates: GameCategoryUpdate }>({
@@ -39,7 +39,7 @@ export const useMutation_updateGameCategory = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['gameCategories'] });
+      queryClient.invalidateQueries({ queryKey: ['games'] });
     },
   });
 };

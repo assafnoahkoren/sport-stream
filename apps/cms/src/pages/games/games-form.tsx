@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from '@mantine/form';
 import { TextInput, NumberInput, Button, Select, Stack } from '@mantine/core';
+import { useQuery_allTags } from '../../queries/tags/queries';
+import { useMutation_insertGame, useMutation_updateGame } from '../../queries/game/mutations';
+import { useQuery_getGameById } from '../../queries/game/queries';
+import { Database } from '@sport-stream/common/src/database.types';
 import { DateInput } from '@mantine/dates';
-import { useQuery_getAllTags } from '../../queries/tags/queries';
-import { useMutation_insertGame, useMutation_updateGame } from '../../queries/games/mutations';
-import { useQuery_getGameById } from '../../queries/games/queries';
-import { Database } from '../../../../common/src/database.types';
 
 type Game = Database['public']['Tables']['games']['Row'];
 
@@ -15,7 +15,7 @@ interface GamesFormProps {
 
 const GamesForm: React.FC<GamesFormProps> = ({ gameId }) => {
   const { data: game } = useQuery_getGameById(gameId);
-  const { data: tags } = useQuery_getAllTags();
+  const { data: tags } = useQuery_allTags();
   const insertGame = useMutation_insertGame();
   const updateGame = useMutation_updateGame();
 

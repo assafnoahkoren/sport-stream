@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { Database } from '../../../../common/src/database.types';
+import { Database } from '@sport-stream/common/src/database.types';
 import supabase from "../supabase";
 
 type GameCategory = Database['public']['Tables']['games']['Row'];
 
-export const useQuery_getAllGameCategories = () => {
+export const useQuery_getAllGame = () => {
 
   return useQuery<GameCategory[], Error>({
-    queryKey: ['gameCategories'],
+    queryKey: ['games'],
     queryFn: async () => {
       const { data, error } = await supabase
         .from('games')
@@ -19,9 +19,9 @@ export const useQuery_getAllGameCategories = () => {
   });
 };
 
-export const useQuery_getGameCategoryById = (id: number | null) => {
+export const useQuery_getGameById = (id: number | null) => {
   return useQuery<GameCategory | null, Error>({
-    queryKey: ['gameCategory', id],
+    queryKey: ['game', id],
     queryFn: async () => {
       if (!id) return null;
       const { data, error } = await supabase
