@@ -7,6 +7,7 @@ import AppShellComponent from '../app-shell';
 import BrowsePage from '../../pages/browse/browse-page';
 import ContentPage from '../../pages/content/content-page';
 import TagsPage from '../../pages/tags/tags-page';
+import GamesPage from '../../pages/games/games-page';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/tags/:id?",
         element: <TagsPage />,
+      },
+      {
+        path: "/games/:id?",
+        element: <GamesPage />,
       },
       {
         path: "/home-layout",
