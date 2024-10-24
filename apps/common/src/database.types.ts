@@ -84,6 +84,7 @@ export type Database = {
           game_date: string | null
           id: number
           league_tag_id: number | null
+          sport_tag_id: number | null
           summary_video_url: string | null
           team1_score: number | null
           team1_tag_id: number | null
@@ -95,6 +96,7 @@ export type Database = {
           game_date?: string | null
           id?: number
           league_tag_id?: number | null
+          sport_tag_id?: number | null
           summary_video_url?: string | null
           team1_score?: number | null
           team1_tag_id?: number | null
@@ -106,6 +108,7 @@ export type Database = {
           game_date?: string | null
           id?: number
           league_tag_id?: number | null
+          sport_tag_id?: number | null
           summary_video_url?: string | null
           team1_score?: number | null
           team1_tag_id?: number | null
@@ -116,6 +119,13 @@ export type Database = {
           {
             foreignKeyName: "games_league_tag_id_fkey"
             columns: ["league_tag_id"]
+            isOneToOne: false
+            referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "games_sport_tag_id_fkey"
+            columns: ["sport_tag_id"]
             isOneToOne: false
             referencedRelation: "tags"
             referencedColumns: ["id"]

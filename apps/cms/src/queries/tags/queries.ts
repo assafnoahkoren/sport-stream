@@ -21,3 +21,14 @@ export const useQuery_allTags = () => {
     },
   });
 };
+
+export const useQuery_getTagsByType = (type: string) => {
+  return useAppQuery({
+    queryKey: ['tags', type],
+    queryFn: async () => {
+      const { data } = await supabase.from('tags').select('*').eq('type', type);
+      return data;
+    },
+    enabled: !!type,
+  });
+};
