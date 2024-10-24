@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Text } from '@mantine/core';
+import GamesForm from './games-form';
 
 interface GamesPageProps {}
 
@@ -11,10 +12,10 @@ const GamesPage: React.FC<GamesPageProps> = () => {
 
   return (
     <div className='flex flex-col gap-4'>
-      <Text>
+      <Text size="xl" weight={700} className="mb-4">
         {isEditMode ? 'Edit Game' : 'Create New Game'}
       </Text>
-      {/* TODO: Implement GamesForm component */}
+      <GamesForm gameId={id} />
     </div>
   );
 };
