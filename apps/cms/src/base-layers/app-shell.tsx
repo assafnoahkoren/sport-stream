@@ -2,7 +2,7 @@ import React from 'react';
 import { AppShell, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import SidebarItem, { SidebarItemProps } from './routing/sidebar-item';
-import { IconHash, IconLayout, IconLayoutGrid, IconLayoutGridFilled, IconMenu2, IconVideo, IconX } from '@tabler/icons-react';
+import { IconHash, IconLayout, IconLayoutGrid, IconLayoutGridFilled, IconMenu2, IconVideo, IconX, IconGamepad } from '@tabler/icons-react';
 import { Outlet } from 'react-router-dom';
 
 const sidebarItems: SidebarItemProps[] = [
@@ -22,12 +22,16 @@ const sidebarItems: SidebarItemProps[] = [
     icon: <IconHash />
   },
   {
+    path: '/games',
+    label: 'Games',
+    icon: <IconGamepad />
+  },
+  {
     path: '/home-layout',
     label: 'Home Layout',
     disabled: true,
     icon: <IconLayout />
   }
-
 ];
 
 const AppShellComponent: React.FC = () => {
