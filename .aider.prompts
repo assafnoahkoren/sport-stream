@@ -1,0 +1,27 @@
+# File for context
+apps\common\src\database.types.ts
+apps\common\src\suapbase-client.ts
+\apps\common\src\base-queries.ts
+
+# Creating a new task prompt
+/ask
+The task we want to accomplish is:
+Create a new page for upserting Games objects. Make it like C:\Projects\sport-stream\apps\cms\src\pages\content\content-page.tsx
+And add this page to the C:\Projects\sport-stream\apps\cms\src\routes.ts file.
+Add it to the apps/cms/src/base-layers/app-shell.tsx file to the sidebar.
+
+Some guidelines for the new task:
+- For UI use the mantine components
+- For the database access:
+- - Create a useAppQuery or useAppMutation hook
+- - Use the database types for the query and mutation functions
+
+Edit the .aider.task file in the folowing way:
+1. Add the new task to the task summary
+2. Break down the task into subtasks and add them to the subtasks list like this example:
+- [x] Example for a a completed task
+- [ ] >>> Example for the current task
+- [ ] Example for a task
+
+Before you start, think step by step and write down the plan.
+Before each subtask, ask if you should continue or if you need to change the plan.

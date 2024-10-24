@@ -3,3 +3,5 @@
 **/build
 **/.env
 .aider*
+!.aider.task
+!.aider.prompts
