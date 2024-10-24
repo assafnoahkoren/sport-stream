@@ -10,7 +10,7 @@ interface GameProps {
 const Game: React.FC<GameProps> = ({ game }) => {
   return (
     <div>
-      {/* Game component content will be implemented here */}
+      asd
     </div>
   );
 };
