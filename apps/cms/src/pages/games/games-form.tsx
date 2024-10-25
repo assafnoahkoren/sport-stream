@@ -1,12 +1,12 @@
 import React from 'react';
 import { useForm } from '@mantine/form';
 import { TextInput, NumberInput, Button, Select, Stack, Group, Autocomplete, Text, Title } from '@mantine/core';
-import { useQuery_allTags, useQuery_getTagsByType } from '../../queries/tags/queries';
+import { useQuery_getTagsByType } from '../../queries/tags/queries';
 import { useMutation_insertGame, useMutation_updateGame } from '../../queries/game/mutations';
 import { useQuery_getGameById } from '../../queries/game/queries';
 import { Database } from '@sport-stream/common/src/database.types';
-import { DateInput, DatePicker } from '@mantine/dates';
-import GameCard from './game';
+import { DatePicker } from '@mantine/dates';
+import GameCard from './game-card';
 
 type Game = Database['public']['Tables']['games']['Row'];
 
@@ -61,18 +61,22 @@ const GamesForm: React.FC<GamesFormProps> = ({ gameId }) => {
       <form onSubmit={form.onSubmit(handleSubmit)} className="space-y-4">
         <Group>
           <Stack className='flex-1'>
-            <Autocomplete
+            <Select
               label="League"
               placeholder="Select league"
+              searchable
               data={leagueTagOptions}
               {...form.getInputProps('league_tag_id')}
+              onChange={(it) => form.setFieldValue('league_tag_id', Number(it) || 0)}
               className="flex-1"
             />
-            <Autocomplete
+            <Select
               label="Sport"
               placeholder="Select sport"
+              searchable
               data={sportTagOptions}
               {...form.getInputProps('sport_tag_id')}
+              onChange={(it) => form.setFieldValue('sport_tag_id', Number(it) || 0)}
               className="flex-1"
             />
             <Group>
@@ -82,6 +86,7 @@ const GamesForm: React.FC<GamesFormProps> = ({ gameId }) => {
                 className="flex-1"
                 data={teamTagOptions}
                 {...form.getInputProps('team1_tag_id')}
+                onChange={(it) => form.setFieldValue('team1_tag_id', Number(it) || 0)}
               />
               <NumberInput
                 label="Team 1 Score"

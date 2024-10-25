@@ -5,7 +5,7 @@
   "types": "src/index.ts",
   "license": "MIT",
   "dependencies": {
-    "@supabase/supabase-js": "^2.45.4",
+    "@supabase/supabase-js": "^2.45.6",
     "@tanstack/react-query": "^5.56.2",
     "supabase": "^1.200.3"
   },
@@ -14,6 +14,5 @@
     "supabase:login": "npx supabase login && npx supabase link --project-ref rwhmppiedwslwbwmqien",
     "supabase:pull": "npx supabase db pull",
     "supabase:migrate": "npx supabase migration new migration"
-
   }
 }

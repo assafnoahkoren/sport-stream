@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Database } from '@sport-stream/common/src/database.types';
 import supabase from "../supabase";
+import { QueryData } from '@supabase/supabase-js';
 
 type GameCategory = Database['public']['Tables']['games']['Row'];
 
@@ -18,6 +19,8 @@ export const useQuery_getAllGame = () => {
     },
   });
 };
+
+
 
 export const useQuery_getGameById = (id: number | null) => {
   return useQuery<GameCategory | null, Error>({
