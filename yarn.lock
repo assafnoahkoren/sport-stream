@@ -23,6 +23,11 @@
   resolved "https://registry.yarnpkg.com/@antfu/utils/-/utils-0.7.10.tgz#ae829f170158e297a9b6a28f161a8e487d00814d"
   integrity sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==
 
+"@arrow-navigation/core@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@arrow-navigation/core/-/core-2.2.0.tgz#3363c2a478b3d6edc541928559912f319a6af088"
+  integrity sha512-Zk0VvAJoKA7OG762jTPrUDqgEK023ueOP41bUnRBJ23UxseJJV1U6cuA3OoiVhCQnqBZsRL8Rg3mq3L+1Nsuig==
+
 "@babel/code-frame@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.24.7.tgz#882fd9e09e8ee324e496bd040401c6f046ef4465"

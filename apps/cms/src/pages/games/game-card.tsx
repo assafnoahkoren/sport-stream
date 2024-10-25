@@ -10,6 +10,7 @@ type Game = Database['public']['Tables']['games']['Row'];
 
 interface GameCardProps {
   game: Game;
+  id?: string;
   containerProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
@@ -30,14 +31,14 @@ const TeamScore: React.FC<TeamScoreProps> = (props) => {
 };
 
 
-const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
+const GameCard: React.FC<GameCardProps> = ({ game, containerProps, id }) => {
   const { data: league } = useQuery_getTagById(game.league_tag_id);
   const { data: team1 } = useQuery_getTagById(game.team1_tag_id);
   const { data: team2 } = useQuery_getTagById(game.team2_tag_id);
 
   useEffect(() => {
     if (!team1?.color_1 || !team1?.color_2) return;
-    ConfettiService.snow(`game-card-background-${game.id}`, {
+    ConfettiService.snow(`game-card-background-${id}`, {
       position: {
         y: -25,
         x: 25,
@@ -48,7 +49,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
 
   useEffect(() => {
     if (!team2?.color_1 || !team2?.color_2) return;
-    ConfettiService.snow(`game-card-background-${game.id}`, {
+    ConfettiService.snow(`game-card-background-${id}`, {
       position: {
         y: -25,
         x: 75,
@@ -66,8 +67,8 @@ const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
   return (
     <Stack>
 
-      <Group {...containerProps} className={`${containerProps?.className} w-md bg-[#1E1F22] p-4 gap-1 rounded-3xl relative`} align='top'>
-        <canvas id={`game-card-background-${game.id}`} className='opacity-50 inset-0 absolute w-full h-full overflow-hidden rounded-3xl' />
+      <Group {...containerProps} tabIndex={1} id={id} className={`${containerProps?.className} w-md bg-[#1E1F22] p-4 gap-1 rounded-3xl relative`} align='top'>
+        <canvas id={`game-card-background-${id}`} className='opacity-50 inset-0 absolute w-full h-full overflow-hidden rounded-3xl' />
         <div className='absolute w-full h-full inset-0 overflow-hidden rounded-3xl opacity-50'>
           <RadialColor className='absolute w-[200px] h-[200px] -top-[20px] -left-[70px]' color={team1?.color_1 + '22'} />
           <RadialColor className='absolute w-[100px] h-[100px] top-[70px] left-[20px]' color={team1?.color_2 + '22'} />

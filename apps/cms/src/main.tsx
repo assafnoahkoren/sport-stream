@@ -8,6 +8,8 @@ import "@fontsource/heebo/latin-400.css";
 import "@fontsource/heebo/latin-700.css";
 import "@fontsource/heebo/latin-900.css";
 import '@mantine/dates/styles.css';
+import { initArrowNavigation } from "@arrow-navigation/core"
+initArrowNavigation({ debug: true })
 
 
 createRoot(document.getElementById('root')!).render(
