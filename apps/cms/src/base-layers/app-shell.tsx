@@ -7,22 +7,22 @@ import { Outlet } from 'react-router-dom';
 
 const sidebarItems: SidebarItemProps[] = [
   {
-    path: '/',
+    path: '/cms',
     label: 'Browse',
     icon: <IconLayoutGrid />
   },
   {
-    path: '/tags',
+    path: '/cms/tags',
     label: 'Tags',
     icon: <IconHash />
   },
   {
-    path: '/games',
+    path: '/cms/games',
     label: 'Games',
     icon: <IconFlag />
   },
   {
-    path: '/home-layout',
+    path: '/cms/home-layout',
     label: 'Home Layout',
     disabled: true,
     icon: <IconLayout />

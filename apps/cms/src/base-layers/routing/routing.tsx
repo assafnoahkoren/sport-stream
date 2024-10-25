@@ -12,33 +12,33 @@ import ViewerPage from '../../pages/viewer/viewer-page';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/cms",
     element: <AppShellComponent />,
     children: [
       {
-        path: "/",
+        path: "/cms",
         element: <BrowsePage />,
       },
       {
-        path: "/content/:id?",
+        path: "/cms/content/:id?",
         element: <ContentPage />,
       },
       {
-        path: "/tags/:id?",
+        path: "/cms/tags/:id?",
         element: <TagsPage />,
       },
       {
-        path: "/games/:id?",
+        path: "/cms/games/:id?",
         element: <GamesPage />,
       },
       {
-        path: "/home-layout",
+        path: "/cms/home-layout",
         element: <div>Settings</div>,
       },
     ],
   },
   {
-    path: "viewer",
+    path: "/",
     element: <ViewerPage />,
   }
 ]);
