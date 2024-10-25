@@ -12,7 +12,7 @@ const ViewerPage: React.FC<ViewerPageProps> = (props) => {
   let { data: games, isLoading, error } = useQuery_getAllGame();
 
   if (games && games[0]) {
-    games = [games[0], games[0], games[0], games[0]]
+    games = [games[0], games[0], games[0], games[0], games[0], games[0], games[0]]
   }
 
   useEffect(() => {
@@ -38,7 +38,12 @@ const ViewerPage: React.FC<ViewerPageProps> = (props) => {
     navigationApi.registerGroup('search-group')
     navigationApi.unregisterElement('search-input')
     navigationApi.registerElement('search-input', 'search-group')
-    navigationApi.on(ArrowNavigationEvents.CURRENT_ELEMENT_CHANGE, (event: { current: { group: string, id: string }, prev: { group: string, id: string }, direction: string }) => {
+    navigationApi.on(ArrowNavigationEvents.CURRENT_ELEMENT_CHANGE, (event: { current: { group: string, id: string, _ref: any }, prev: { group: string, id: string, _ref: any }, direction: string }) => {
+      if (event.current.group === 'group-0' || event.current.group === 'group-1') {
+        setTimeout(() => {
+          event.current._ref.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+        }, 5)
+      }
       console.log('Current element changed', event)
       if (event.direction === 'down') {
         if (event.prev.id === 'settings-button' || event.prev.id === 'user-button') {
