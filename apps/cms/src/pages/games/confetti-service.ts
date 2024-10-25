@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { confetti, ConfettiOptions } from '@tsparticles/confetti';
 
 
