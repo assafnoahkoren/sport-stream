@@ -1,4 +1,5 @@
-import { defineConfig } from 'unocss'
+import { defineConfig, presetUno  } from 'unocss'
+import { presetScrollbarHide } from 'unocss-preset-scrollbar-hide'
 
 export default defineConfig({
     theme: {
@@ -11,5 +12,9 @@ export default defineConfig({
             'primary-5': '#3b5bdb',
             'primary-6': '#364fc7',
         }
-    }
+    },
+    presets: [
+        presetUno(),
+        presetScrollbarHide(),
+    ]
 })

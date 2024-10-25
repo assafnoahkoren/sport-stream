@@ -8,6 +8,7 @@ import BrowsePage from '../../pages/browse/browse-page';
 import ContentPage from '../../pages/content/content-page';
 import TagsPage from '../../pages/tags/tags-page';
 import GamesPage from '../../pages/games/games-page';
+import ViewerPage from '../../pages/viewer/viewer-page';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "viewer",
+    element: <ViewerPage />,
+  }
 ]);
 
 const Routing: React.FC = () => {

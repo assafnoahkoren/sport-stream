@@ -3176,6 +3176,11 @@ unload@2.2.0:
     "@babel/runtime" "^7.6.2"
     detect-node "^2.0.4"
 
+unocss-preset-scrollbar-hide@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/unocss-preset-scrollbar-hide/-/unocss-preset-scrollbar-hide-1.0.1.tgz#543ec9658098fd9d9ee648b38ea40988fbe10a54"
+  integrity sha512-U+JcxAMhgvI14ZtveQBRSbyYGkgYRDlOJzAW2pUbrTvsGZwTyb3dWLvNiMdtN4s1dFEGMCBRAgnoBPLh21APPQ==
+
 unocss@^0.62.4:
   version "0.62.4"
   resolved "https://registry.yarnpkg.com/unocss/-/unocss-0.62.4.tgz#5afc20dda5513ff23f84613f2975951682cb2a75"

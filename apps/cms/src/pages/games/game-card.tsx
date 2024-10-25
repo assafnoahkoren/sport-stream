@@ -64,33 +64,36 @@ const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
   }
 
   return (
-    <Group className='w-md bg-[#1E1F22] p-4 gap-1 rounded-3xl relative' {...containerProps} align='top'>
-      <canvas id={`game-card-background-${game.id}`} className='opacity-50 inset-0 absolute w-full h-full overflow-hidden rounded-3xl' />
-      <div className='absolute w-full h-full inset-0 overflow-hidden rounded-3xl opacity-50'>
-        <RadialColor className='absolute w-[200px] h-[200px] -top-[20px] -left-[70px]' color={team1?.color_1 + '22'} />
-        <RadialColor className='absolute w-[100px] h-[100px] top-[70px] left-[20px]' color={team1?.color_2 + '22'} />
-        <RadialColor className='absolute w-[200px] h-[200px] -top-[20px] -right-[70px]' color={team2?.color_1 + '22'} />
-        <RadialColor className='absolute w-[100px] h-[100px] top-[70px] right-[20px]' color={team2?.color_2 + '22'} />
-      </div>
-      <TeamScore team={team1?.label} imageUrl={team1?.icon_url} score={game.team1_score} />
-      <Stack className='flex-1 h-full gap-2' align='center'>
-        <Title order={3}>VS</Title>
-        <Button variant='outline' color='gray' size='xs' className='px-3'>
-          <IconPlayerPlayFilled className='me-1 -ms-1' size={16} />
-          Watch
-        </Button>
-        <Text size='xs' opacity={0.5}>
-          {daysAgo}
-        </Text>
-        <Group justify='center' align='center' className='absolute top-full left-0 w-full -mt-[25px]'>
-          <Text className='absolute bottom-full mb-2' size='xs'>{league?.label}</Text>
-          <img className='rounded-full border bg-[#353639] p-1'
-            width={50} height={50} src={league?.icon_url} alt={league?.label ?? ''} />
+    <Stack>
 
-        </Group>
+      <Group {...containerProps} className={`${containerProps?.className} w-md bg-[#1E1F22] p-4 gap-1 rounded-3xl relative`} align='top'>
+        <canvas id={`game-card-background-${game.id}`} className='opacity-50 inset-0 absolute w-full h-full overflow-hidden rounded-3xl' />
+        <div className='absolute w-full h-full inset-0 overflow-hidden rounded-3xl opacity-50'>
+          <RadialColor className='absolute w-[200px] h-[200px] -top-[20px] -left-[70px]' color={team1?.color_1 + '22'} />
+          <RadialColor className='absolute w-[100px] h-[100px] top-[70px] left-[20px]' color={team1?.color_2 + '22'} />
+          <RadialColor className='absolute w-[200px] h-[200px] -top-[20px] -right-[70px]' color={team2?.color_1 + '22'} />
+          <RadialColor className='absolute w-[100px] h-[100px] top-[70px] right-[20px]' color={team2?.color_2 + '22'} />
+        </div>
+        <TeamScore team={team1?.label} imageUrl={team1?.icon_url} score={game.team1_score} />
+        <Stack className='flex-1 h-full gap-2' align='center'>
+          <Title order={3}>VS</Title>
+          <Button variant='outline' color='gray' size='xs' className='px-3'>
+            <IconPlayerPlayFilled className='me-1 -ms-1' size={16} />
+            Watch
+          </Button>
+          <Text size='xs' opacity={0.5}>
+            {daysAgo}
+          </Text>
+
+        </Stack>
+        <TeamScore team={team2?.label} imageUrl={team2?.icon_url} score={game.team2_score} />
+      </Group>
+      <Stack justify='center' align='center' className='w-full -mt-[62px] z-10' gap={5}>
+        <Text className='bottom-full' size='xs'>{league?.label}</Text>
+        <img className='rounded-full border bg-[#353639] p-1'
+          width={50} height={50} src={league?.icon_url} alt={league?.label ?? ''} />
       </Stack>
-      <TeamScore team={team2?.label} imageUrl={team2?.icon_url} score={game.team2_score} />
-    </Group>
+    </Stack>
   );
 };
 

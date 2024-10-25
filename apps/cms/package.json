@@ -26,6 +26,7 @@
     "react-query": "^3.39.3",
     "react-router-dom": "^6.26.2",
     "supabase": "^1.200.3",
+    "unocss-preset-scrollbar-hide": "^1.0.1",
     "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
