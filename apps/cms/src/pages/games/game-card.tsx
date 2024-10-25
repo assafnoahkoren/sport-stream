@@ -91,7 +91,7 @@ const GameCard: React.FC<GameCardProps> = ({ game, containerProps }) => {
       <Stack justify='center' align='center' className='w-full -mt-[62px] z-10' gap={5}>
         <Text className='bottom-full' size='xs'>{league?.label}</Text>
         <img className='rounded-full border bg-[#353639] p-1'
-          width={50} height={50} src={league?.icon_url} alt={league?.label ?? ''} />
+          width={50} height={50} src={league?.icon_url as any} alt={league?.label ?? ''} />
       </Stack>
     </Stack>
   );
